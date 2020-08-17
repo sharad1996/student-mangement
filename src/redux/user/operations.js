@@ -7,13 +7,14 @@ import {
   setCurrentUser,
   setToken,
 } from './actions'
-import { history } from '../../helpers/history'
+import history from '../../helpers/history'
 
 export const addUser = (payload) => {
   return dispatch => {
     axios.post('/user/addUser', payload)
       .then(res => {
         dispatch(addUserData(res.data.user))
+        history.push('/login')
       })
       .catch((err) => {
         if (err.response) console.log(err.response.data.msg)
@@ -65,10 +66,10 @@ export const loginUser = (id) => {
   return dispatch => {
     axios.post(`/user/login`)
       .then(res => {
-        history.push('/view-student')
         dispatch(setCurrentUser(res.data.user))
         dispatch(setToken(res.data.token))
         sessionStorage.setItem('token', res.data.token)
+        history.push('/view-student')
       })
       .catch((err) => {
         if (err.response) console.log(err.response.data.msg)

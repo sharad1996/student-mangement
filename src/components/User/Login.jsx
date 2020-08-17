@@ -1,7 +1,8 @@
-import React from 'react'
-import { useDispatch } from "react-redux"
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 import { loginUser } from '../../redux/user/operations'
 import { Form, Input, Button, Card } from 'antd'
+import history from '../../helpers/history'
 
 const layout = {
     labelCol: { span: 8 },
@@ -10,7 +11,15 @@ const layout = {
 
 export const Login = (props) => {
     const dispatch = useDispatch();
+    const usersData = useSelector(state => state.userReducer)
+
     const [form] = Form.useForm();
+
+    useEffect(() => {
+        if (usersData.token) {
+            history.push('/view-student')
+        }
+    }, [usersData.token])
 
     const onFinish = values => {
         dispatch(loginUser(values))

@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from "react-redux"
 import { Menu, Dropdown } from 'antd'
 import { DownOutlined, UserOutlined } from '@ant-design/icons'
+import history from '../helpers/history'
 
 export const Header = () => {
     const usersData = useSelector(state => state.userReducer)
@@ -9,6 +10,7 @@ export const Header = () => {
     const handleLogout = () => {
         // Logout user
         sessionStorage.removeItem('token')
+        history.push('/login')
     }
 
     const menu = (

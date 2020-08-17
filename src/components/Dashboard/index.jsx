@@ -98,6 +98,7 @@ const Dashboard = () => {
                 dataSource={usersData.users}
                 columns={columns}
                 pagination={false}
+                rowKey={record => record._id}
             />
             <EditStudent />
         </>
