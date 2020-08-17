@@ -29,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://powerful-brushlands-66188.herokuapp.com/",
+  "proxy": "https://powerful-brushlands-66188.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },
