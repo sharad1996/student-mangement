@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, DatePicker } from 'antd'
 
 const layout = {
     labelCol: { span: 8 },
@@ -26,7 +26,6 @@ export const ContactForm = (props) => {
                 email: user.email,
                 phoneNumber: user.phoneNumber,
                 country: user.country,
-                dob: user.dob,
                 address: user.address
             });
         }
@@ -57,9 +56,9 @@ export const ContactForm = (props) => {
             <Form.Item name='country' label="Country">
                 <Input />
             </Form.Item>
-            <Form.Item name='dob' label="Date of birth">
-                <Input />
-            </Form.Item>
+            {!props.isEdit && <Form.Item name='dob' label="Date of birth">
+                <DatePicker />
+            </Form.Item>}
             {!props.isEdit && <Form.Item name='password' label="Password" rules={[{ required: true }]}>
                 <Input />
             </Form.Item>}

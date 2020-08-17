@@ -51,7 +51,14 @@ const Dashboard = () => {
             title: 'DOB',
             dataIndex: 'dob',
             width: '10%',
-            editable: true,
+            render: (_, record) => {
+                const dob = new Date(record.dob)
+                return (
+                    <p>
+                        {dob && dob.toDateString()}
+                    </p>
+                );
+            },
         },
         {
             title: 'Address',
