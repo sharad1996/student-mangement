@@ -4,21 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `cd client`
-for starting react server
-
 ### `yarn install`
 loading project dependecies
 
-### `yarn start`
-for starting project
+### `yarn run start-client`
+for starting frontend
 
+### `yarn run start-server`
+for starting backend
 
-### `cd server`
-for starting node server
-
-### `yarn install`
-loading project dependecies
-
-### `yarn start`
-for starting project
+OR you can run 
+### `yarn run dev`
+for running both servers using single command
